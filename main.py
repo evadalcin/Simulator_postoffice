@@ -5,9 +5,9 @@ queue = []
 client_counter = 0
 
 def client_generator():
-    client_age = (map(int,(input("Enter a range separate by a space for the range of client ages: ").split(" "))))
-    client_age = random.randint(next(client_age), next(client_age))
-
+    #client_age = (map(int,(input("Enter a range separate by a space for the range of client ages: ").split(" "))))
+    #client_age = random.randint(next(client_age), next(client_age))
+    client_age = random.randint(16, 99)
     if client_age < 35:
         service_time = random.randint(1, 3)
     elif 35 <= client_age < 65:
@@ -48,14 +48,14 @@ def last_client_wait():
         print(f"The last client in the queue is Client {last_client[0]} with age {last_client[1][0]}, and will wait for {wait_time} minutes.")
 
 def simulator():
-    n = int(input("Enter the number of clients to simulate: "))
-    for i in range(n):
-            add_clients(n)
+    # n = int(input("Enter the number of clients to simulate: "))
+    # for i in range(n):
+            add_clients(3)
             while queue:
                 current_client = queue[0]
                 print(f"Processing Client {current_client[0]} with age {current_client[1][0]}, service time: {current_client[1][1]} minutes.")
-                time.sleep(4)
-                time.sleep(8)
+                time.sleep(2)
+
                 remove_client()
 
             print("All clients processed. End of simulation.")
